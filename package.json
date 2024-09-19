@@ -14,5 +14,9 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0"
   }
 }
