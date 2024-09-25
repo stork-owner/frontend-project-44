@@ -17,8 +17,25 @@ export default () => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  function questions () {
-    const randomNumber = getRandomIntInclusive(0, 100);
-    if (randomNumber)
+  const firstNumber = getRandomIntInclusive(0, 100);
+  const residueFirstNumber = firstNumber % 2;
+
+  let parityFirstNumber = '';
+  if (residueFirstNumber === 0) {
+    parityFirstNumber = 'yes';
+  } else {
+    parityFirstNumber = 'no';
   }
+
+  console.log(`Question: ${firstNumber}`);
+  const firstResponse = readlineSync.question('Your answer: ');
+
+  if (firstResponse === parityFirstNumber) {
+    console.log('Correct!');
+  } else {
+    return console.log(`${firstResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.
+  Let's try again, ${name}!`);
+  }
+
+  return console.log('It WORK!');
 };
