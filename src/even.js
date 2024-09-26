@@ -75,5 +75,5 @@ export default () => {
   Let's try again, ${name}!`);
   }
 
-  return console.log(`Congratulations, ${name}`);
+  return console.log(`Congratulations, ${name}!`);
 };
