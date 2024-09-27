@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import cacl from '../src/calc.js'
+import calc from '../src/calc.js';
 
-console.log('TR');
-
-calc()
+calc();
