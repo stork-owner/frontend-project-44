@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { replyToUser } from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -94,12 +95,7 @@ export default () => {
   console.log(`Question: ${firstNumberThirdQuestion} ${operandThirdQuestion} ${secondNumberThirdQuestion}`);
   const thirdResponse = readlineSync.question('Your answer: ');
 
-  if (thirdResponse === resultThirdQuestionString) {
-    console.log('Correct!');
-  } else {
-    return console.log(`${secondResponse} is wrong answer ;(. Correct answer was ${resultSecondQuestionString}}.
-  Let's try again, ${name}!`);
-  }
+  replyToUser(thirdResponse, resultThirdQuestionString, name);
 
   return console.log(`Congratulations, ${name}!`);
 };
