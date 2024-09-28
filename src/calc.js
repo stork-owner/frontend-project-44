@@ -25,24 +25,81 @@ export default () => {
 
   const firstNumberFistQuestion = getRandomIntInclusive(0, 100);
   const secondNumberFirstQuestion = getRandomIntInclusive(0, 100);
-  const firstOperandFirstQuestion = getRandomOperand();
+  const operandFirstQuestion = getRandomOperand();
 
   let resultFirstQuestion = '';
-  if (firstOperandFirstQuestion === '+') {
+
+  if (operandFirstQuestion === '+') {
     resultFirstQuestion = firstNumberFistQuestion + secondNumberFirstQuestion;
-  } else if (firstOperandFirstQuestion === '-') {
+  } else if (operandFirstQuestion === '-') {
     resultFirstQuestion = firstNumberFistQuestion - secondNumberFirstQuestion;
   } else {
     resultFirstQuestion = firstNumberFistQuestion * secondNumberFirstQuestion;
   }
 
-  console.log(`${firstNumberFistQuestion} ${firstOperandFirstQuestion} ${secondNumberFirstQuestion}`);
+  const resultFirstQuestionString = resultFirstQuestion.toString();
+
+  console.log(`Question: ${firstNumberFistQuestion} ${operandFirstQuestion} ${secondNumberFirstQuestion}`);
   const firstResponse = readlineSync.question('Your answer: ');
 
-  if (firstResponse === parityFirstNumber) {
+  if (firstResponse === resultFirstQuestionString) {
     console.log('Correct!');
   } else {
-    return console.log(`${firstResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.
+    return console.log(`${firstResponse} is wrong answer ;(. Correct answer was ${resultFirstQuestionString}}.
   Let's try again, ${name}!`);
   }
+  // lifgjhlskfgjhslk;ftjhklwrtjhgkl;wrtfjhli;dfrtjhkl;irtyh;likrtyhkltyrhkdghkl;j;ktyjh
+  const firstNumberSecondQuestion = getRandomIntInclusive(0, 100);
+  const secondNumberSecondQuestion = getRandomIntInclusive(0, 100);
+  const operandSecondQuestion = getRandomOperand();
+
+  let resultSecondQuestion = '';
+
+  if (operandSecondQuestion === '+') {
+    resultSecondQuestion = firstNumberSecondQuestion + secondNumberSecondQuestion;
+  } else if (operandSecondQuestion === '-') {
+    resultSecondQuestion = firstNumberSecondQuestion - secondNumberSecondQuestion;
+  } else {
+    resultSecondQuestion = firstNumberSecondQuestion * secondNumberSecondQuestion;
+  }
+
+  const resultSecondQuestionString = resultSecondQuestion.toString();
+
+  console.log(`Question: ${firstNumberSecondQuestion} ${operandSecondQuestion} ${secondNumberSecondQuestion}`);
+  const secondResponse = readlineSync.question('Your answer: ');
+
+  if (secondResponse === resultSecondQuestionString) {
+    console.log('Correct!');
+  } else {
+    return console.log(`${secondResponse} is wrong answer ;(. Correct answer was ${resultSecondQuestionString}}.
+  Let's try again, ${name}!`);
+  }
+
+  const firstNumberThirdQuestion = getRandomIntInclusive(0, 100);
+  const secondNumberThirdQuestion = getRandomIntInclusive(0, 100);
+  const operandThirdQuestion = getRandomOperand();
+
+  let resultThirdQuestion = '';
+
+  if (operandThirdQuestion === '+') {
+    resultThirdQuestion = firstNumberThirdQuestion + secondNumberThirdQuestion;
+  } else if (operandThirdQuestion === '-') {
+    resultThirdQuestion = firstNumberThirdQuestion - secondNumberThirdQuestion;
+  } else {
+    resultThirdQuestion = firstNumberThirdQuestion * secondNumberThirdQuestion;
+  }
+
+  const resultThirdQuestionString = resultThirdQuestion.toString();
+
+  console.log(`Question: ${firstNumberThirdQuestion} ${operandThirdQuestion} ${secondNumberThirdQuestion}`);
+  const thirdResponse = readlineSync.question('Your answer: ');
+
+  if (thirdResponse === resultThirdQuestionString) {
+    console.log('Correct!');
+  } else {
+    return console.log(`${secondResponse} is wrong answer ;(. Correct answer was ${resultSecondQuestionString}}.
+  Let's try again, ${name}!`);
+  }
+
+  return console.log(`Congratulations, ${name}!`);
 };
