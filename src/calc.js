@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { replyToUser } from './index.js';
+import { replyToUser, replyToUser2 } from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -43,10 +43,10 @@ export default () => {
   console.log(`Question: ${firstNumberFistQuestion} ${operandFirstQuestion} ${secondNumberFirstQuestion}`);
   const firstResponse = readlineSync.question('Your answer: ');
 
-  if (firstResponse === resultFirstQuestionString) {
+  if (replyToUser2(firstResponse, resultFirstQuestionString) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`${firstResponse} is wrong answer ;(. Correct answer was ${resultFirstQuestionString}}.
+    return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${resultFirstQuestionString}'.
   Let's try again, ${name}!`);
   }
   // lifgjhlskfgjhslk;ftjhklwrtjhgkl;wrtfjhli;dfrtjhkl;irtyh;likrtyhkltyrhkdghkl;j;ktyjh
@@ -69,10 +69,10 @@ export default () => {
   console.log(`Question: ${firstNumberSecondQuestion} ${operandSecondQuestion} ${secondNumberSecondQuestion}`);
   const secondResponse = readlineSync.question('Your answer: ');
 
-  if (secondResponse === resultSecondQuestionString) {
+  if (replyToUser2(secondResponse, resultSecondQuestionString) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`${secondResponse} is wrong answer ;(. Correct answer was ${resultSecondQuestionString}}.
+    return console.log(`'${secondResponse}' is wrong answer ;(. Correct answer was '${resultSecondQuestionString}'.
   Let's try again, ${name}!`);
   }
 
