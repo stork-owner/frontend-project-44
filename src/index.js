@@ -10,4 +10,11 @@ const replyToUser = (a, b, c) => {
   return console.log(result);
 };
 
-export { replyToUser };
+const replyToUser2 = (a, b) => {
+  if (a === b) {
+    return true;
+  }
+  return false;
+};
+
+export { replyToUser, replyToUser2 };
