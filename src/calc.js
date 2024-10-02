@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { replyToUser, replyToUser2 } from './index.js';
+import { replyToUser } from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -43,13 +43,12 @@ export default () => {
   console.log(`Question: ${firstNumberFistQuestion} ${operandFirstQuestion} ${secondNumberFirstQuestion}`);
   const firstResponse = readlineSync.question('Your answer: ');
 
-  if (replyToUser2(firstResponse, resultFirstQuestionString) === true) {
+  if (replyToUser(firstResponse, resultFirstQuestionString) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${resultFirstQuestionString}'.
-  Let's try again, ${name}!`);
+    return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${resultFirstQuestionString}'.\nLet's try again, ${name}!`);
   }
-  // lifgjhlskfgjhslk;ftjhklwrtjhgkl;wrtfjhli;dfrtjhkl;irtyh;likrtyhkltyrhkdghkl;j;ktyjh
+
   const firstNumberSecondQuestion = getRandomIntInclusive(0, 100);
   const secondNumberSecondQuestion = getRandomIntInclusive(0, 100);
   const operandSecondQuestion = getRandomOperand();
@@ -69,11 +68,10 @@ export default () => {
   console.log(`Question: ${firstNumberSecondQuestion} ${operandSecondQuestion} ${secondNumberSecondQuestion}`);
   const secondResponse = readlineSync.question('Your answer: ');
 
-  if (replyToUser2(secondResponse, resultSecondQuestionString) === true) {
+  if (replyToUser(secondResponse, resultSecondQuestionString) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`'${secondResponse}' is wrong answer ;(. Correct answer was '${resultSecondQuestionString}'.
-  Let's try again, ${name}!`);
+    return console.log(`'${secondResponse}' is wrong answer ;(. Correct answer was '${resultSecondQuestionString}'.\nLet's try again, ${name}!`);
   }
 
   const firstNumberThirdQuestion = getRandomIntInclusive(0, 100);
@@ -95,7 +93,11 @@ export default () => {
   console.log(`Question: ${firstNumberThirdQuestion} ${operandThirdQuestion} ${secondNumberThirdQuestion}`);
   const thirdResponse = readlineSync.question('Your answer: ');
 
-  replyToUser(thirdResponse, resultThirdQuestionString, name);
+  if (replyToUser(thirdResponse, resultThirdQuestionString) === true) {
+    console.log('Correct!');
+  } else {
+    return console.log(`'${thirdResponse}' is wrong answer ;(. Correct answer was '${resultThirdQuestionString}'.\nLet's try again, ${name}!`);
+  }
 
   return console.log(`Congratulations, ${name}!`);
 };
