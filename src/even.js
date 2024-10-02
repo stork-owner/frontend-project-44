@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { replyToUser } from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -30,11 +31,10 @@ export default () => {
   console.log(`Question: ${firstNumber}`);
   const firstResponse = readlineSync.question('Your answer: ');
 
-  if (firstResponse === parityFirstNumber) {
+  if (replyToUser(firstResponse, parityFirstNumber) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`${firstResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.
-  Let's try again, ${name}!`);
+    return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${parityFirstNumber}'.\nLet's try again, ${name}!`);
   }
 
   const secondNumber = getRandomIntInclusive(0, 100);
@@ -49,11 +49,10 @@ export default () => {
   console.log(`Question: ${secondNumber}`);
   const secondResponse = readlineSync.question('Your answer: ');
 
-  if (secondResponse === parityFirstNumber) {
+  if (replyToUser(secondResponse, parityFirstNumber) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`${secondResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.
-  Let's try again, ${name}!`);
+    return console.log(`'${secondResponse}' is wrong answer ;(. Correct answer was '${parityFirstNumber}'.\nLet's try again, ${name}!`);
   }
 
   const thirdNumber = getRandomIntInclusive(0, 100);
@@ -68,11 +67,10 @@ export default () => {
   console.log(`Question: ${thirdNumber}`);
   const thirdResponse = readlineSync.question('Your answer: ');
 
-  if (thirdResponse === parityFirstNumber) {
+  if (replyToUser(thirdResponse, parityFirstNumber) === true) {
     console.log('Correct!');
   } else {
-    return console.log(`${thirdResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.
-  Let's try again, ${name}!`);
+    return console.log(`${thirdResponse} is wrong answer ;(. Correct answer was ${parityFirstNumber}.\nLet's try again, ${name}!`);
   }
 
   return console.log(`Congratulations, ${name}!`);
