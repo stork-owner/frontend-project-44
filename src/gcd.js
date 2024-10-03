@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { replyToUser } from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -16,36 +17,38 @@ export default () => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  const firstNumber = getRandomIntInclusive(1, 100);
-  const secondNumber = getRandomIntInclusive(1, 100);
 
-  console.log(firstNumber);
-  console.log(secondNumber);
+  // Функция поиска наибольшего общего делителя
+  const greatestCommonDivisor = (n1, n2) => {
+    const min = (n1 < n2) ? n1 : n2;
+    const max = (n1 > n2) ? n1 : n2;
+    let result = '';
 
-  const correctFirstNumber = () => {
-    let i = firstNumber;
-
-    while (i % 2 === 0) {
-      i += 1;
+    for (let i = min; i <= min && i > 0; i -= 1) {
+      if (min % i === 0 && max % i === 0) {
+        result = i;
+        break;
+      }
     }
-    console.log(i);
+    return result;
   };
 
-  const correctSecondNumber = () => {
-    let i = secondNumber;
+  const firstNumberFirstQuestion = getRandomIntInclusive(1, 100);
+  const secondNumberFirstQuestion = getRandomIntInclusive(1, 100);
+  const greatestCommonDivisorFirstQuestion = greatestCommonDivisor(
+    firstNumberFirstQuestion,
+    secondNumberFirstQuestion,
+  );
 
-    while (i % 2 === 0) {
-      i += 1;
-    }
-    console.log(i);
-  };
+  console.log(firstNumberFirstQuestion);
+  console.log(secondNumberFirstQuestion);
 
-  correctFirstNumber(firstNumber);
-  correctSecondNumber(secondNumber);
+  console.log(`Question: ${firstNumberFirstQuestion} ${secondNumberFirstQuestion}`);
+  const firstResponse = readlineSync.question('Your answer: ');
 
-  const del = () => {
-    let i = 67;
-
-    while (i)
-  };
+  if (replyToUser(Number(firstResponse), greatestCommonDivisorFirstQuestion) === true) {
+    console.log('Correct!');
+  } else {
+    return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${greatestCommonDivisorFirstQuestion}'.\nLet's try again, ${name}!`);
+  }
 };
