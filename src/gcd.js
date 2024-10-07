@@ -40,9 +40,6 @@ export default () => {
     secondNumberFirstQuestion,
   );
 
-  console.log(firstNumberFirstQuestion);
-  console.log(secondNumberFirstQuestion);
-
   console.log(`Question: ${firstNumberFirstQuestion} ${secondNumberFirstQuestion}`);
   const firstResponse = readlineSync.question('Your answer: ');
 
@@ -51,4 +48,38 @@ export default () => {
   } else {
     return console.log(`'${firstResponse}' is wrong answer ;(. Correct answer was '${greatestCommonDivisorFirstQuestion}'.\nLet's try again, ${name}!`);
   }
+
+  const firstNumberSecondQuestion = getRandomIntInclusive(1, 100);
+  const secondNumberSecondQuestion = getRandomIntInclusive(1, 100);
+  const greatestCommonDivisorSecondQuestion = greatestCommonDivisor(
+    firstNumberSecondQuestion,
+    secondNumberSecondQuestion,
+  );
+
+  console.log(`Question: ${firstNumberSecondQuestion} ${secondNumberSecondQuestion}`);
+  const SecondResponse = readlineSync.question('Your answer: ');
+
+  if (replyToUser(Number(SecondResponse), greatestCommonDivisorSecondQuestion) === true) {
+    console.log('Correct!');
+  } else {
+    return console.log(`'${SecondResponse}' is wrong answer ;(. Correct answer was '${greatestCommonDivisorSecondQuestion}'.\nLet's try again, ${name}!`);
+  }
+
+  const firstNumberThirdQuestion = getRandomIntInclusive(1, 100);
+  const secondNumberThirdQuestion = getRandomIntInclusive(1, 100);
+  const greatestCommonDivisorThirdQuestion = greatestCommonDivisor(
+    firstNumberThirdQuestion,
+    secondNumberThirdQuestion,
+  );
+
+  console.log(`Question: ${firstNumberThirdQuestion} ${secondNumberThirdQuestion}`);
+  const ThirdResponse = readlineSync.question('Your answer: ');
+
+  if (replyToUser(Number(ThirdResponse), greatestCommonDivisorThirdQuestion) === true) {
+    console.log('Correct!');
+  } else {
+    return console.log(`'${ThirdResponse}' is wrong answer ;(. Correct answer was '${greatestCommonDivisorThirdQuestion}'.\nLet's try again, ${name}!`);
+  }
+
+  return console.log(`Congratulations, ${name}!`);
 };
