@@ -1,8 +1,6 @@
-const replyToUser = (a, b) => {
+export default (a, b) => {
   if (a === b) {
     return true;
   }
   return false;
 };
-
-export { replyToUser };
