@@ -13,9 +13,9 @@ export default () => {
 
   // функция поиска целого числа в заданном диапазоне
   function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    const minCeil = Math.ceil(min);
+    const maxFloor = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloor - minCeil + 1) + minCeil);
   }
   // Функция пояска случайного оператора
   function getRandomOperand() {
