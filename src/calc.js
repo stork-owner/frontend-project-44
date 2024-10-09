@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { replyToUser } from './index.js';
+import replyToUser from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
