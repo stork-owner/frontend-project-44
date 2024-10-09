@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { replyToUser } from './index.js';
+import replyToUser from './index.js';
 
 console.log('Welcome to the Brain Games!');
 
@@ -13,9 +13,9 @@ export default () => {
 
   // функция поиска целого числа в заданном диапазоне
   function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    const minCeil = Math.ceil(min);
+    const maxFloor = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloor - minCeil + 1) + minCeil);
   }
 
   // функция определения простого числа
